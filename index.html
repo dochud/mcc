@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mobility Competency Centre</title>
+  <meta name="description" content="Case Studies highlighting the success of the Mobility Competency Centre">
+ <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+
+  <style>
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+header {
+  background: linear-gradient(135deg, #004996, #00CFFF);
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+}
+header h1 { margin: 0; }
+
+section {
+  padding: 1rem 2rem;
+  max-width: 900px;
+  margin: 0.1rem auto;
+}
+
+section > *:last-child {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin: 0.25rem 0 0.75rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.25rem;
+  color: #004996;
+}
+
+/* About */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.about img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #004996;
+}
+
+/* Quick Links */
+.quick-links {
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  padding: 0.75rem;
+  max-width: 900px;
+  margin: 1rem auto;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.btn {
+  background: #004996;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.btn:hover { background: #00AEEF; }
+
+/* Case Studies */
+.case-study {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 0.75rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.case-study-content h3 {
+  margin-bottom: 0.2rem;
+  color: #004996;
+}
+
+.case-body {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+}
+
+/* Logo always left */
+.case-study > img {
+  flex: 0 0 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #004996;
+  align-self: center;
+}
+
+/* Text block */
+.case-study-content {
+  flex: 1 1 auto;
+  min-width: 200px;
+}
+
+.case-study-content p {
+  margin-bottom: 0.4rem;
+}
+
+/* Date label */
+.case-date {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 0.2rem;
+}
+
+/* Case button */
+.case-btn {
+  display: inline-block;
+  margin-top: 0.25rem;
+  background: #004996;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.case-btn:hover { background: #00AEEF; }
+
+/* Video thumbnail */
+.video-thumb {
+  display: block;
+  flex: 0 0 300px;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-left: auto;
+  border: 3px solid #004996;
+  transition: transform 0.3s ease;
+}
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+/* Overlay */
+.video-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover effects */
+.video-thumb:hover img { transform: scale(1.05); }
+.video-thumb:hover::after { opacity: 1; }
+
+/* Play button */
+.play-button {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.play-button svg {
+  display: block;
+  width: 85%;
+  height: 85%;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%   { transform: translate(-50%, -50%) scale(1);   box-shadow: 0 0 0 0 rgba(0,123,255,0.6); }
+  70%  { transform: translate(-50%, -50%) scale(1.05);box-shadow: 0 0 0 12px rgba(0,123,255,0); }
+  100% { transform: translate(-50%, -50%) scale(1);   box-shadow: 0 0 0 0 rgba(0,123,255,0); }
+}
+.video-thumb:hover .play-button { animation: pulse 1.5s infinite; }
+
+/* Mobile: keep logo left, stack text & video to its right */
+@media (max-width: 800px) {
+  .case-study {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+   .case-body {
+    flex-direction: column;
+  }
+  .case-study-content {
+   flex: 1 1 100%;
+    width: 100%;
+    max-width: 300px;
+    }
+    
+  .video-thumb {
+    flex: none;
+    max-width: 300px;
+  }
+  .case-study-content {
+    margin-bottom: 0.5rem;
+  }
+  .video-thumb {
+    margin-left: 0;
+  }
+}
+
+/* Papers */
+.papers {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.paper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+.paper-logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+.paper-content { flex: 1; }
+.paper-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #004996;
+  text-decoration: none;
+}
+.paper-title:
+.paper-meta {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: #666;
+}
+.paper-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #004996;
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.paper-btn:hover { background: #00AEEF; }
+
+.team {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.team h2 {
+  color: #004996;
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.team-grid a {
+  text-decoration: none;
+  color: #333;
+  width: 150px;
+}
+
+.team-grid img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #004996;
+  transition: transform 0.3s ease;
+}
+
+.team-grid img:hover {
+  transform: scale(1.05);
+}
+
+.team-grid p {
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #222;
+  color: #fff;
+  font-size: 0.9rem;
+}
+footer a {
+  color: #00CFFF;
+  text-decoration: none;
+}
+
+  </style>
+</head>
+<body>
+<header style="background: linear-gradient(135deg, #004996, #004996); color: #fff; text-align: center; padding: 2rem;">
+  <img src="images/team-logo.png" alt="Team Logo" style="height: 100px; margin-bottom: 1rem;">
+  <h1>Mobility Competency Centre</h1>
+  <p>Mobility · Android · Samsung</p>
+</header>
+
+  <section class="about">
+    <div>
+      <h2>About Us</h2>
+      <p>Gregg Thinks it, Dean Makes it Happen :) </p>
+    </div>
+  </section>
+  
+  <!--
+  <section class="team">
+  <h2>Meet the Awesomeness</h2>
+  <div class="team-grid">
+    <a href="https://www.linkedin.com/in/gregg-hudson/" target="_blank">
+      <img src="images/avatar.png" alt="Member 1">
+      <p>Gregg Hudson</p>
+    </a>
+    <a href="https://www.linkedin.com/in/scott-elliott-472644134" target="_blank">
+      <img src="images/Scotty.jpeg" alt="Member 2">
+      <p>Scotty</p>
+    </a>
+    <!-- Add more members as needed -->
+  </div>
+</section>
+
+<section>
+  <h2>Watch Us and Read About Us</h2>
+  
+    <!-- Samsung Video Case Study 14
+  <div class="case-study">
+    <img src="images/samsung.png" alt="Samsung Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Samsung Knox Case Study</h3>
+        <span class="case-date">November 2025</span>
+        <p>Hear how we use Samsung products and servies to enhance our mobility offering, improving the service for end users and supportability for IT.</p>
+      </div>
+      <a href="https://youtu.be/" target="_blank" class="video-thumb">
+        <img src="images/Samsung-Thumb.png" alt="Samsung Case Study Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+  -->
+
+   <!--Case Study 13 -->
+  <div class="case-study">
+    <img src="images/vmware.png" alt="Omnissa Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Protecting and serving the public with frontline mobility</h3>
+        <span class="case-date">March 2025 · (Originally published September 2022)</span>
+        <p>A look at how the relationship built with VMware/Omnissa enabled me to rapidly enhance WMP's frontline mobility offering.</p>
+        <a href="pdfs/vmware-wmp.pdf" target="_blank" class="case-btn">📖 Read Case Study</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Case Study 12
+  <div class="case-study">
+    <img src="images/cop.png" alt="College of Pollicing Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>College of Policing Practice Bank</h3>
+        <span class="case-date">April 2024</span>
+        <p>Our Automation supporting Defence Solicitors and their clients received national recognition from the College of Policing's Best Practice bank.</p>
+        <a href="pdfs/CoP.pdf" target="_blank" class="case-btn">📖 Read Case Study</a>
+      </div>
+    </div>
+  </div>
+
+    <!-- Case Study 11
+  <div class="case-study">
+    <img src="images/uipath.png" alt="UiPath Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>UiPath Case Study</h3>
+        <span class="case-date">January 2024</span>
+        <p>Hear how automation improves policing operations while better serving the community.</p>
+      </div>
+      <a href="https://youtu.be/Xd1uv8cxVlY" target="_blank" class="video-thumb">
+        <img src="images/ui-cs-thumb.png" alt="Samsung Case Study Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Case Study 10 -->
+  <div class="case-study">
+    <img src="images/vodafone.png" alt="Vodafone Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Keeping Officers Connected with Vodafone</h3>
+        <span class="case-date">September 2023</span>
+        <p>West Midlands Police partnered with Vodafone to help digitise their officers, so they can focus more time on serving the public and less time on paperwork.</p>
+      </div>
+      <a href="https://youtu.be/CyrnR2QByn8" target="_blank" class="video-thumb">
+        <img src="images/VF-Thumb.png" alt="Vodafone Video Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Case Study 9 -->
+  <div class="case-study">
+    <img src="images/vmware.jpeg" alt="VMware Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Collaboration delivers improved services</h3>
+        <span class="case-date">September 2022</span>
+        <p>VMware Customer Success Blog: Partnerships are more advantageous than traditional client/customer relationships.<br> This blog highlights the benefits experienced through close collaboration of WMP and VMware/Omnissa colleagues.</p>
+        <a href="pdfs/vmware-collaboration.pdf" target="_blank" class="case-btn">📖 Read Blog</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Case Study 8
+  <div class="case-study">
+    <img src="images/uipath.png" alt="UiPath Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Intelligent Automation for the Public Sector</h3>
+        <span class="case-date">July 2022</span>
+        <p>In this webinar, I discuss West Midlands Police’s journey with UiPath and how our Centre for Applied Automation has embedded into the organisation and supported better policing outcomes.</p>
+      </div>
+      <a href="https://www.youtube.com/watch?v=" target="_blank" class="video-thumb">
+        <img src="images/ui-PS-Thumb.png" alt="UiPath Fireside Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+  </div>
+  
+    <!-- Case Study 7
+  <div class="case-study">
+    <img src="images/uipath.png" alt="UiPath Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>UiPath Case Study</h3>
+        <span class="case-date">March 2022</span>
+        <p>Learn how I implemented software robots to save time while focusing on what matters most: protecting the community.</p>
+        <a href="pdfs/uipath-case-study.pdf" target="_blank" class="case-btn">📖 Read Case Study</a>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Case Study 6
+  <div class="case-study">
+    <img src="images/uipath.png" alt="UiPath Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>UiPath Fireside Chat</h3>
+        <span class="case-date">December 2021</span>
+        <p>Listen to me and colleagues discuss how automation is providing better outcomes for policing and improving public sector services.</p>
+      </div>
+      <a href="https://youtu.be/VTri30NDz0g" target="_blank" class="video-thumb">
+        <img src="images/Ui-FS-Thumb.png" alt="UiPath Fireside Title Slide">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+    <!-- Case Study 5 -->
+  <div class="case-study">
+    <img src="images/android.png" alt="Android Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Android Fireside Chat</h3>
+        <span class="case-date">July 2021</span>
+        <p>In this fireside chat I discuss how Android Enterprise supported frontline mobility during the pandemic.</p>
+      </div>
+      <a href="https://youtu.be/IFqGWPmr7-o" target="_blank" class="video-thumb">
+        <img src="images/Android-Thumb.png" alt="Android Fireside Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+    <!-- Case Study 4 -->
+  <div class="case-study">
+    <img src="images/forrester.png" alt="Forrester Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Total Economic Impact of Android Enterprise</h3>
+        <span class="case-date">May 2021</span>
+        <p>I was invited to contribute to Forrester's research into the Total Economic Impact of Android Enterprise.</p>
+        <a href="pdfs/forrester-tei.pdf" target="_blank" class="case-btn">📖 Read Report</a>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Case Study 3 -->
+  <div class="case-study">
+    <img src="images/samsung.png" alt="Samsung Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>A Force for Change</h3>
+        <span class="case-date">November 2020</span>
+        <p>How my team used Samsung Knox to equip frontline workers with secure, robust, user-friendly mobile devices.</p>
+        <a href="pdfs/samsung-case-study.pdf" target="_blank" class="case-btn">📖 Read Case Study</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Case Study 2 -->
+  <div class="case-study">
+    <img src="images/android.png" alt="Android Enterprise Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>Streamlining frontline work with Android Enterprise</h3>
+        <span class="case-date">June 2020</span>
+        <p>Read how my team streamlined frontline working with Android Enterprise.</p>
+        <a href="pdfs/android-enterprise.pdf" target="_blank" class="case-btn">📖 Read Case Study</a>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Case Study 1 -->
+  <div class="case-study">
+    <img src="images/bbc.png" alt="BBC Logo">
+    <div class="case-body">
+      <div class="case-study-content">
+        <h3>BBC Midlands Today</h3>
+        <span class="case-date">August 2020</span>
+        <p>Hear officers explain how they use their mobility kit.</p>
+      </div>
+      <a href="https://youtu.be/pq1SPhoK6tw" target="_blank" class="video-thumb">
+        <img src="images/BBC-Thumb.png" alt="BBC Video Screenshot">
+        <div class="play-button">
+          <svg viewBox="0 0 100 100" width="60%" height="60%" aria-hidden="true">
+            <polygon points="35,25 75,50 35,75" fill="white" />
+          </svg>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+       </section>  
+        
+<!--
+  <section>
+    <h2>Published Research Papers</h2>
+    <div class="papers">
+          <div class="paper">
+        <img src="images/cellrep-logo.jpg" alt="Cell Reports Logo" class="paper-logo">
+        <div class="paper-content">
+          <h3 class="paper-title">Disruption of the Class IIa HDAC Corepressor Complexes</h3>
+          <p class="paper-meta">Cell Reports · 2016</p>
+          <a href="pdfs/hudson-2016-cellrep.pdf" target="_blank" class="paper-btn">🔬 Read Paper</a>
+        </div>
+      </div>
+      <div class="paper">
+        <img src="images/jbc-logo.png" alt="JBC Logo" class="paper-logo">
+        <div class="paper-content">
+          <h3 class="paper-title">Insights into the Recruitment of Class IIa HDACs</h3>
+          <p class="paper-meta">JBC · 2015</p>
+          <a href="pdfs/hudson-2015-jbc.pdf" target="_blank" class="paper-btn">🔬 Read Paper</a>
+        </div>
+      </div>
+  <div class="paper">
+        <img src="images/acta-logo.png" alt="Acta Crystallographica Logo" class="paper-logo">
+        <div class="paper-content">
+          <h3 class="paper-title">Initial X-Ray analysis of GAPDH crystallography</h3>
+          <p class="paper-meta">Acta Crystallographica · 2010</p>
+          <a href="pdfs/hudson-2010-acta.pdf" target="_blank" class="paper-btn">🔬 Read Paper</a>
+        </div>
+      </div>
+    </div>
+    
+
+</section>
+-->
+
+
+  <footer>
+    <p>© 2025 · Gregg Hudson Ph.D </p>
+  </footer>
+</body>
+</html>
